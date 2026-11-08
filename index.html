@@ -322,7 +322,7 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
         <p>His work is published through his independent imprint, <a href="https://steveneschaefer.github.io/estebanpress-site/">Esteban Press</a>.</p>
       </div>
     </div>
-    <p class="note">→ Add a contact address once your author email is set up (e.g. steven@steveneschaefer.com).</p>
+    <p id="contact"><span class="label" style="margin-right:12px">Contact</span><a class="eml" data-u="steven" data-d="steveneschaefer.com" href="#contact">steven [at] steveneschaefer [dot] com</a></p>
   </div>
 </div></section>
 
@@ -390,7 +390,7 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 
 <footer><div class="wrap">
   <span>© 2026 Steven E. Schaefer · Published by <a href="https://steveneschaefer.github.io/estebanpress-site/">Esteban Press</a></span>
-  <span>01000010 01000111</span>
+  <span><a class="eml" data-u="steven" data-d="steveneschaefer.com" data-keep="1" href="#contact">Contact</a> · 01000010 01000111</span>
 </div></footer>
 
 <script>
@@ -612,6 +612,14 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
   } else play();
   window.addEventListener('resize', build);
 })();
+</script>
+<script>
+/* Builds email links in the browser so the address never appears in the page source (keeps most spam bots out). */
+document.querySelectorAll('a.eml').forEach(function (a) {
+  var addr = a.dataset.u + '@' + a.dataset.d;
+  a.href = 'mailto:' + addr;
+  if (!a.dataset.keep) a.textContent = addr;
+});
 </script>
 </body>
 </html>
