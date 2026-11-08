@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Binary Gods Author Site</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; a two-column hero with the cover; the field of bits that resolves into 大 lives in The World. */
+:root {
+  --paper: #ECEEF0;
+  --surface: #F6F7F8;
+  --ink: #151B25;
+  --muted: #586273;
+  --line: #CBD1D9;
+  --accent: #9A6A0C;
+  --accent-soft: #E6D9BD;
+  --bits: #9AA3B0;
+  --display: "Gloock", "Bodoni 72", "Didot", Georgia, serif;
+  --body: "Literata", "Iowan Old Style", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F131A; --surface: #161B24; --ink: #E5E8EC; --muted: #97A0AD;
+    --line: #273040; --accent: #D6A546; --accent-soft: #3A3020; --bits: #3A4454;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F131A; --surface: #161B24; --ink: #E5E8EC; --muted: #97A0AD;
+  --line: #273040; --accent: #D6A546; --accent-soft: #3A3020; --bits: #3A4454;
+  color-scheme: dark;
+}
+
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.1; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* Draft banner */
+.draft { background: var(--accent-soft); color: var(--ink); font-family: var(--mono); font-size: 12px; letter-spacing: .04em; }
+.draft .wrap { padding-block: 8px; display: flex; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
+
+/* Header */
+header .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.byline { font-family: var(--display); font-size: 22px; text-decoration: none; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { font-family: var(--mono); font-size: 13px; text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; padding-block: 64px 72px; }
+.hero h1 { font-size: clamp(56px, 9vw, 112px); letter-spacing: -.01em; margin-top: 14px; }
+.hero .tag { font-size: 21px; color: var(--muted); max-width: 30ch; margin-top: 22px; font-style: italic; }
+.status { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+.chip { font-family: var(--mono); font-size: 12px; padding: 6px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.chip.live { border-color: var(--accent); color: var(--accent); }
+.cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+.btn { font-family: var(--mono); font-size: 13px; letter-spacing: .03em; padding: 13px 20px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+
+.cover { aspect-ratio: 2 / 3; max-width: 100%; background: #05070B; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,.18), 0 24px 60px -12px rgba(0,0,0,.45); }
+.cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+figure { margin: 0; }
+
+/* The four books */
+.books { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.books li { display: grid; gap: 10px; align-content: start; }
+.books img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: #05070B; box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 10px 24px -8px rgba(0,0,0,.4); }
+.books .num { font-family: var(--mono); font-size: 12px; color: var(--accent); display: block; }
+.books .name { font-family: var(--display); font-size: 22px; line-height: 1.15; display: block; }
+.books .kind { font-family: var(--mono); font-size: 12px; color: var(--muted); display: block; }
+.frames { font-size: 15px; color: var(--muted); font-style: italic; }
+
+/* Field of bits resolving into 大: always dark, for contrast */
+.glyph { position: relative; aspect-ratio: 4 / 3; background: #07090D; border: 1px solid var(--line); overflow: hidden; }
+.glyph canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.glyph figcaption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #9AA6B6; background: linear-gradient(transparent, rgba(7,9,13,.92) 55%); }
+.glyph button { font: inherit; letter-spacing: inherit; text-transform: inherit; color: #E6EAF0; background: transparent; border: 1px solid #3A4454; padding: 5px 10px; cursor: pointer; }
+.glyph button:hover { border-color: #E63B2E; color: #FF6A5C; }
+.glyph .ctrls { display: flex; gap: 8px; }
+.glyph button[aria-pressed="false"] { color: #7C8796; }
+
+/* Author */
+.author-row { display: grid; grid-template-columns: 210px 1fr; gap: 28px; align-items: start; }
+.author-row img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: #0B0D10; }
+.author-row .text { display: grid; gap: 16px; }
+
+/* Sections */
+section.block .wrap { padding-block: 72px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+section.block h2 { font-size: 40px; }
+.prose { max-width: 64ch; display: grid; gap: 18px; min-width: 0; }
+.prose .lede { font-size: 21px; line-height: 1.55; }
+.note { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+
+/* Structure: the real order of the tetralogy */
+.parts { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.parts li { display: grid; grid-template-columns: 92px 1fr auto; gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.parts .num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.parts .name { font-family: var(--display); font-size: 26px; }
+.parts .kind { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.parts li.frame .name { font-size: 20px; color: var(--muted); }
+
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.person h3 { font-size: 28px; }
+.person .label { margin-top: 6px; display: block; }
+.person p { margin-top: 10px; color: var(--muted); }
+
+.comps { display: flex; flex-wrap: wrap; gap: 8px 22px; font-style: italic; color: var(--muted); }
+
+.praise { border-left: 2px solid var(--accent); padding-left: 20px; color: var(--muted); font-style: italic; }
+
+/* Timeline: an actual sequence */
+.timeline { list-style: none; padding: 0; margin: 0; display: grid; }
+.timeline li { display: grid; grid-template-columns: 22px 120px 1fr; gap: 14px; align-items: baseline; padding: 12px 0; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--muted); transform: translateY(1px); }
+.done .dot { background: var(--muted); }
+.now .dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.timeline .when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.now .what { color: var(--ink); font-weight: 600; }
+
+.signup-card { background: var(--surface); border: 1px solid var(--line); padding: 28px; display: grid; gap: 18px; }
+.signup-card .perks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.signup-card .perks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: baseline; }
+.signup-card .perks .bit { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+form.signup { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 10px; align-items: end; }
+form.signup .field { display: grid; gap: 6px; min-width: 0; }
+form.signup .btn { height: 50px; padding-block: 0; }
+form.signup input { width: 100%; height: 50px; box-sizing: border-box; min-width: 0; font: inherit; font-size: 16px; padding: 0 14px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+form.signup input[aria-invalid="true"] { border-color: var(--accent); }
+form.signup .btn[disabled] { opacity: .6; cursor: progress; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.fineprint { font-size: 14px; color: var(--muted); }
+.formmsg { font-family: var(--mono); font-size: 13px; color: var(--accent); min-height: 1.2em; }
+.formmsg.ok { color: var(--ink); }
+
+footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 40px; padding-block: 40px 56px; }
+  .cover { max-width: 340px; }
+  .books { grid-template-columns: repeat(2, 1fr); gap: 22px 16px; }
+  .author-row { grid-template-columns: 1fr; }
+  .author-row img { max-width: 260px; }
+  section.block .wrap { grid-template-columns: 1fr; gap: 20px; padding-block: 56px; }
+  .pair { grid-template-columns: 1fr; }
+  .parts li { grid-template-columns: 64px 1fr; }
+  .parts .kind { grid-column: 2; }
+  .timeline li { grid-template-columns: 22px 1fr; }
+  .timeline .what { grid-column: 2; }
+  form.signup { grid-template-columns: 1fr; }
+  .signup-card { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="draft"><div class="wrap"><span>DRAFT · Not public · All copy is placeholder for the author to revise</span><span>v0.6 · Nov 2026</span></div></div>
+
+<header><div class="wrap">
+  <a class="byline" href="#top">Steven E. Schaefer</a>
+  <nav aria-label="Main">
+    <a href="#book">The Book</a>
+    <a href="#world">The World</a>
+    <a href="#author">Author</a>
+    <a href="#news">News</a>
+    <a href="#list">Get Updates</a>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="label">A novel in four books · 2035–2063</span>
+    <h1>Binary Gods</h1>
+    <p class="tag">Zeros and ones become minds. Minds become gods. And somebody has to have started it.</p>
+    <div class="status">
+      <span class="chip live">In structural edit</span>
+      <span class="chip">Publication date to be announced</span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#list">Get updates</a>
+      <a class="btn ghost" href="#book">Read about the book</a>
+    </div>
+  </div>
+  <figure class="cover">
+    <img src="images/cover-binary-gods.jpg" width="1024" height="1536" alt="Cover of Binary Gods by Steven E. Schaefer: two figures face each other across a glowing double helix in a field of stars.">
+  </figure>
+</div></section>
+
+<section class="block" id="book"><div class="wrap">
+  <div><span class="label">The Book</span><h2 style="margin-top:10px">A love story at the edge of the substrate</h2></div>
+  <div class="prose">
+    <p class="lede">Soma Moto builds minds. Amara Soyinka splits open the physics underneath them. Across three decades of a world carved into five super-blocs, the two of them are pulled toward each other and toward a question neither can leave alone: what is a person, if a person can be written?</p>
+    <p>Binary Gods is a near-future thriller with a love story at its center and a long philosophical reach. It moves from childhood to old age, from San Francisco labs to the coast of Ghana, and from human hands to synthetic ones. Along the way it asks who made whom, whether consciousness cares what it runs on, and what the word "god" means when every creator was once created.</p>
+    <p class="note">→ Replace with final jacket copy after the structural edit.</p>
+    <ol class="books" aria-label="The four books of Binary Gods">
+      <li><img src="images/book1-origin.jpg" width="398" height="569" loading="lazy" alt="Cover of Book One, Origin: a single bright star in deep blue space."><div><span class="num">Book One</span><span class="name">Origin</span><span class="kind">2035 →</span></div></li>
+      <li><img src="images/book2-ascent.jpg" width="472" height="668" loading="lazy" alt="Cover of Book Deux, Ascent: a golden burst of light rising from a dark horizon."><div><span class="num">Book Deux</span><span class="name">Ascent</span></div></li>
+      <li><img src="images/book3-loop.jpg" width="577" height="866" loading="lazy" alt="Cover of Book III, Loop: concentric golden rings around a point of light."><div><span class="num">Book III</span><span class="name">Loop</span></div></li>
+      <li><img src="images/book4-transcension.jpg" width="448" height="672" loading="lazy" alt="Cover of Book IV, Transcension: two figures stand before a towering column of light."><div><span class="num">Book IV</span><span class="name">Transcension</span><span class="kind">→ 2063</span></div></li>
+    </ol>
+    <p class="frames">The four books are framed by a Prelude and a Postlude.</p>
+    <div>
+      <span class="label">For readers of</span>
+      <div class="comps" style="margin-top:8px"><span>Kazuo Ishiguro</span><span>Richard Powers</span><span>Ted Chiang</span><span>Cormac McCarthy</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="world"><div class="wrap">
+  <div><span class="label">The World</span><h2 style="margin-top:10px">Why “Binary Gods”</h2></div>
+  <div class="prose">
+    <p>The title isn't about humans versus machines. It's about bits: zeros and ones becoming minds, souls and beings. Humans beget synthetics. Synthetics become biological. The loop closes, and nobody can say for certain where it started.</p>
+    <figure class="glyph">
+      <canvas id="bits" role="img" aria-label="A field of zeros and ones in which the character 人 is written in red, then a crossing stroke turns it into 大."></canvas>
+      <figcaption><span>0 · 1 · 人 · 大</span><span class="ctrls"><button type="button" id="sound" aria-pressed="true">♪ Sound on</button><button type="button" id="replay">↻ Replay</button></span></figcaption>
+    </figure>
+    <div class="pair">
+      <div class="person">
+        <h3>Soma Moto</h3>
+        <span class="label">本 蒼馬 · Digital architect</span>
+        <p>Builds the systems everyone else will live inside, and has to decide what he owes the things he makes.</p>
+      </div>
+      <div class="person">
+        <h3>Amara Soyinka</h3>
+        <span class="label">Cape Coast · Quantum physicist</span>
+        <p>Finds a door in the physics that no one was supposed to open, and learns who else is standing on the other side.</p>
+      </div>
+    </div>
+    <p>Around them: synthetics with names and wills of their own, a World Unity League holding five super-blocs together, and a cast that refuses to sort neatly into made and maker.</p>
+    <p class="note">→ Character lines are placeholders. Keep them spoiler-free.</p>
+  </div>
+</div></section>
+
+<section class="block" id="praise"><div class="wrap">
+  <div><span class="label">Praise</span><h2 style="margin-top:10px">Early readers</h2></div>
+  <div class="prose">
+    <p class="praise">Advance praise will appear here once quotes are approved for publication.</p>
+    <p class="note">→ Only use endorsements with the person's written permission.</p>
+  </div>
+</div></section>
+
+<section class="block" id="author"><div class="wrap">
+  <div><span class="label">Author</span><h2 style="margin-top:10px">Steven E. Schaefer</h2></div>
+  <div class="prose">
+    <div class="author-row">
+      <img src="images/author-steven-schaefer.jpg" width="800" height="1000" loading="lazy" alt="Portrait of Steven E. Schaefer in a dark suit and glasses against a black background.">
+      <div class="text">
+        <p>Steven E. Schaefer has spent his career where medicine meets data: as a healthcare and medical-technology executive, a former CEO, and an adviser in health data science. Binary Gods grows out of the questions that work kept raising about minds, measurement and what can be known. It is his first novel.</p>
+        <p>He lives in Maryland, and is at work on the next book in the series.</p>
+      </div>
+    </div>
+    <p class="note">→ Add a contact address once your author email is set up (e.g. steven@steveneschaefer.com).</p>
+  </div>
+</div></section>
+
+<section class="block" id="news"><div class="wrap">
+  <div><span class="label">News</span><h2 style="margin-top:10px">The road to publication</h2></div>
+  <div class="prose">
+    <ol class="timeline">
+      <li class="done"><span class="dot"></span><span class="when">2026</span><span class="what">Manuscript complete</span></li>
+      <li class="now"><span class="dot"></span><span class="when">Nov 2026</span><span class="what">Structural edit under way</span></li>
+      <li><span class="dot"></span><span class="when">2027</span><span class="what">Cover art</span></li>
+      <li><span class="dot"></span><span class="when">To be announced</span><span class="what">Publication by Esteban Press</span></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="block" id="list"><div class="wrap">
+  <div><span class="label">Newsletter</span><h2 style="margin-top:10px">Hear it first</h2></div>
+  <div class="prose">
+    <p class="lede">Occasional updates on the road to Binary Gods, sent only when there's something worth saying.</p>
+    <div class="signup-card">
+      <ul class="perks">
+        <li><span class="bit">01</span><span>The cover reveal, before it appears anywhere else</span></li>
+        <li><span class="bit">10</span><span>The publication date, the moment it's set</span></li>
+        <li><span class="bit">11</span><span>Notes from the writing desk on the world, the science and the next book</span></li>
+      </ul>
+      <form class="signup" id="signup" method="post" target="signup-sink" novalidate>
+        <div class="field">
+          <label for="fname" class="label">First name</label>
+          <input id="fname" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="email" class="label">Email address</label>
+          <input id="email" name="email_address" type="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input id="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn" type="submit" id="signup-btn">Subscribe</button>
+      </form>
+      <p class="formmsg" id="formmsg" role="status" aria-live="polite"></p>
+      <p class="fineprint">No spam, and your address is never shared. Every email has a one-click unsubscribe.</p>
+    </div>
+  </div>
+  <iframe name="signup-sink" id="signup-sink" title="Newsletter sign-up" hidden></iframe>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Steven E. Schaefer · Esteban Press</span>
+  <span>01000010 01000111</span>
+</div></footer>
+
+<script>
+(function () {
+  // ===== NEWSLETTER SETTINGS =====
+  // Paste your Kit form ID between the quotes (digits only, e.g. '1234567').
+  // Leave it empty and the form only checks the address and sends nothing.
+  var KIT_FORM_ID = '10161572';
+  // ===============================
+
+  var form = document.getElementById('signup'), msg = document.getElementById('formmsg');
+  var email = document.getElementById('email'), btn = document.getElementById('signup-btn');
+  var sink = document.getElementById('signup-sink'), waiting = false;
+
+  function say(text, ok) { msg.textContent = text; msg.className = 'formmsg' + (ok ? ' ok' : ''); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      email.setAttribute('aria-invalid', 'true'); email.focus();
+      say('Enter an email address like name@example.com.');
+      return;
+    }
+    email.removeAttribute('aria-invalid');
+    if (document.getElementById('website').value) { say('Thanks. You’re on the list.', true); return; } // bot trap
+    if (!/^\d+$/.test(KIT_FORM_ID)) {
+      say('Draft site: sign-ups aren’t connected yet. Nothing was sent.');
+      return;
+    }
+    form.action = 'https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions';
+    waiting = true; btn.disabled = true; btn.textContent = 'Subscribing…';
+    form.submit();
+  });
+
+  sink.addEventListener('load', function () {
+    if (!waiting) return;
+    waiting = false; btn.disabled = false; btn.textContent = 'Subscribe';
+    form.reset();
+    say('Almost there. Check your inbox and click the link to confirm your subscription.', true);
+  });
+
+  // Zeros and ones that write 大 in red, stroke by stroke:
+  // first an empty field, then 人 (two strokes), then the crossing stroke that makes 大.
+  var cv = document.getElementById('bits'), ctx = cv.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var BG = '#07090D', BIT = '#C9D2DE', RED = '#E63B2E';
+  // Each stroke: a cubic curve in a unit square, its width (start → end, as a share of the square),
+  // and when it starts and how long it takes, in milliseconds.
+  var STROKES = [
+    { p: [[.50, .05], [.51, .42], [.43, .70], [.10, .93]], w: [.052, .024], at: 1200, dur: 1300 }, // 丿 left sweep
+    { p: [[.505, .47], [.60, .65], [.72, .83], [.92, .93]], w: [.030, .066], at: 2700, dur: 1300 }, // 乀 right sweep: 人
+    { p: [[.09, .375], [.36, .36], [.64, .35], [.91, .335]], w: [.044, .048], at: 6000, dur: 200 }   // 一 crossing: 大, after a pause, fast
+  ];
+  var END = 6200, N = 180;
+  var cell = 12, cols, rows, W, H, grid = [], owner = [], param = [], samples = [];
+  var ink = document.createElement('canvas'), ictx = ink.getContext('2d');
+  var t0 = null, started = false, struck = false, lastFlip = 0;
+
+  function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function ease(x) { x = clamp(x); return x * x * (3 - 2 * x); }
+  function bez(p, s) {
+    var u = 1 - s;
+    return [u*u*u*p[0][0] + 3*u*u*s*p[1][0] + 3*u*s*s*p[2][0] + s*s*s*p[3][0],
+            u*u*u*p[0][1] + 3*u*u*s*p[1][1] + 3*u*s*s*p[2][1] + s*s*s*p[3][1]];
+  }
+  function build() {
+    var r = cv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    if (!r.width) return;
+    W = r.width; H = r.height;
+    cv.width = ink.width = W * dpr; cv.height = ink.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ictx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cell = W < 500 ? 9 : 12;
+    cols = Math.floor(W / cell); rows = Math.floor(H / cell);
+    var B = Math.min(W, H) * .84, ox = (W - B) / 2, oy = (H - B) / 2 - H * .03;
+    samples = STROKES.map(function (st) {
+      var out = [];
+      for (var i = 0; i <= N; i++) {
+        var s = i / N, q = bez(st.p, s);
+        out.push({ x: ox + q[0] * B, y: oy + q[1] * B, s: s, r: (st.w[0] + (st.w[1] - st.w[0]) * s) * B });
+      }
+      return out;
+    });
+    grid = []; owner = []; param = [];
+    for (var k = 0; k < cols * rows; k++) {
+      grid.push(Math.random() < .5 ? 0 : 1);
+      var cx = (k % cols) * cell + cell / 2, cy = ((k / cols) | 0) * cell + cell / 2;
+      var who = -1, at = 0;
+      for (var si = 0; si < samples.length && who < 0; si++) {
+        var best = 1e9, bs = 0;
+        for (var j = 0; j < samples[si].length; j++) {
+          var sm = samples[si][j], d = Math.hypot(cx - sm.x, cy - sm.y) - sm.r;
+          if (d < best) { best = d; bs = sm.s; }
+        }
+        if (best <= cell * .2) { who = si; at = bs; }
+      }
+      owner.push(who); param.push(at);
+    }
+    draw(performance.now());
+  }
+  function progress(i, el) { return clamp((el - STROKES[i].at) / STROKES[i].dur); }
+  function draw(now) {
+    var el = reduce ? END : t0 === null ? 0 : now - t0;
+    var prog = STROKES.map(function (_, i) { return progress(i, el); });
+    if (!reduce && t0 !== null && !struck && el >= STROKES[2].at) { struck = true; slash(); }
+    ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+    ctx.fillStyle = BG; ctx.fillRect(0, 0, W, H);
+
+    // Soft ink under the bits, so the strokes read as smooth brushwork.
+    ictx.clearRect(0, 0, W, H); ictx.fillStyle = RED;
+    samples.forEach(function (ss, i) {
+      if (prog[i] <= 0) return;
+      for (var j = 0; j < ss.length && ss[j].s <= prog[i]; j++) {
+        ictx.beginPath(); ictx.arc(ss[j].x, ss[j].y, ss[j].r, 0, 6.2832); ictx.fill();
+      }
+    });
+    // A flare of light when the final stroke lands.
+    var impact = reduce || el < END ? 0 : 1 - clamp((el - END) / 700);
+    ctx.globalAlpha = .2 + .5 * impact; ctx.shadowColor = RED; ctx.shadowBlur = 24 + 30 * impact;
+    ctx.drawImage(ink, 0, 0, W, H);
+    ctx.shadowBlur = 0;
+
+    // The field recedes as the character is written.
+    var fieldAlpha = .58 - .4 * ease((el - STROKES[0].at) / (END - STROKES[0].at));
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = '400 ' + (cell - 1) + 'px "JetBrains Mono", ui-monospace, monospace';
+    ctx.fillStyle = BIT;
+    var lit = new Array(grid.length);
+    for (var k = 0; k < grid.length; k++) {
+      var o = owner[k], a = o < 0 ? 0 : clamp((prog[o] * 1.06 - param[k]) / .06);
+      lit[k] = a;
+      if (a >= 1) continue;
+      ctx.globalAlpha = fieldAlpha * (1 - a);
+      ctx.fillText(grid[k], (k % cols) * cell + cell / 2, ((k / cols) | 0) * cell + cell / 2);
+    }
+    ctx.font = '700 ' + (cell - 1) + 'px "JetBrains Mono", ui-monospace, monospace';
+    ctx.fillStyle = RED; ctx.shadowColor = RED; ctx.shadowBlur = 6 + 14 * impact;
+    for (var m = 0; m < grid.length; m++) {
+      if (!lit[m]) continue;
+      ctx.globalAlpha = lit[m];
+      ctx.fillText(grid[m], (m % cols) * cell + cell / 2, ((m / cols) | 0) * cell + cell / 2);
+    }
+
+    // A bright point at the tip of the stroke being written.
+    for (var i = 0; i < prog.length; i++) {
+      if (prog[i] <= 0 || prog[i] >= 1) continue;
+      var tip = samples[i][Math.round(prog[i] * N)];
+      var g = ctx.createRadialGradient(tip.x, tip.y, 0, tip.x, tip.y, tip.r * 2.2);
+      g.addColorStop(0, 'rgba(255,150,130,.85)'); g.addColorStop(1, 'rgba(230,59,46,0)');
+      ctx.globalAlpha = 1; ctx.shadowBlur = 0; ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(tip.x, tip.y, tip.r * 2.2, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+  }
+  function loop(now) {
+    if (!reduce && now - lastFlip > 70) {
+      lastFlip = now;
+      for (var n = 0; n < 8; n++) { var k = (Math.random() * grid.length) | 0; grid[k] ^= 1; }
+    }
+    draw(now);
+    if (reduce) return;
+    var el = t0 === null ? 0 : now - t0, s3 = STROKES[2];
+    if (el > s3.at - 200 && el < END + 800) requestAnimationFrame(loop);   // every frame through the slash
+    else setTimeout(function () { requestAnimationFrame(loop); }, 70);
+  }
+  function play() { t0 = performance.now(); struck = false; if (!started) { started = true; requestAnimationFrame(loop); } }
+
+  // Sound for the final stroke: a quick swoosh and a low hit, made in the browser (no audio file).
+  // Browsers only allow sound after the visitor has clicked or tapped the page, so it may be silent the first time.
+  var actx = null, soundOn = true;
+  try { soundOn = localStorage.getItem('bg-sound') !== 'off'; } catch (e) {}
+  function audio() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    if (!actx) actx = new AC();
+    if (actx.state === 'suspended') actx.resume();
+    return actx;
+  }
+  ['pointerdown', 'keydown', 'touchend'].forEach(function (ev) {
+    document.addEventListener(ev, function () { audio(); }, { once: true, passive: true });
+  });
+  function slash() {
+    if (!soundOn || !actx || actx.state !== 'running') return;
+    var a = actx, t = a.currentTime + .01, len = .36;
+    var buf = a.createBuffer(1, Math.floor(a.sampleRate * len), a.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    var noise = a.createBufferSource(); noise.buffer = buf;
+    var bp = a.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 1.4;
+    bp.frequency.setValueAtTime(600, t); bp.frequency.exponentialRampToValueAtTime(6000, t + .2);
+    var ng = a.createGain();
+    ng.gain.setValueAtTime(.0001, t); ng.gain.exponentialRampToValueAtTime(.55, t + .12); ng.gain.exponentialRampToValueAtTime(.0001, t + len);
+    noise.connect(bp); bp.connect(ng); ng.connect(a.destination); noise.start(t); noise.stop(t + len);
+    var hit = a.createOscillator(); hit.type = 'sine';
+    hit.frequency.setValueAtTime(130, t + .19); hit.frequency.exponentialRampToValueAtTime(42, t + .7);
+    var hg = a.createGain();
+    hg.gain.setValueAtTime(.0001, t + .18); hg.gain.exponentialRampToValueAtTime(.6, t + .2); hg.gain.exponentialRampToValueAtTime(.0001, t + .75);
+    hit.connect(hg); hg.connect(a.destination); hit.start(t + .18); hit.stop(t + .8);
+  }
+  var soundBtn = document.getElementById('sound');
+  function showSound() { soundBtn.textContent = soundOn ? '♪ Sound on' : '♪ Sound off'; soundBtn.setAttribute('aria-pressed', soundOn ? 'true' : 'false'); }
+  showSound();
+  soundBtn.addEventListener('click', function () {
+    soundOn = !soundOn; showSound();
+    try { localStorage.setItem('bg-sound', soundOn ? 'on' : 'off'); } catch (e) {}
+  });
+  document.getElementById('replay').addEventListener('click', function () {
+    audio();
+    if (reduce) return;
+    for (var i = 0; i < grid.length; i++) grid[i] = Math.random() < .5 ? 0 : 1;
+    play();
+  });
+  build();
+  // Start writing when the graphic scrolls into view.
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { io.disconnect(); play(); }
+    }, { threshold: .45 });
+    io.observe(cv);
+  } else play();
+  window.addEventListener('resize', build);
+})();
+</script>
+</body>
+</html>
