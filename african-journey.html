@@ -227,16 +227,19 @@ dialog.lb::backdrop { background: rgba(8,7,6,.96); }
   .lb .prev { left: auto; right: 70px; }
   .lb-bar { padding-right: 130px; }
 }
+
+.lead-photo { margin: 0; }
+.lead-photo img { width: 100%; height: auto; aspect-ratio: 2.4 / 1; object-fit: cover; display: block; }
 </style>
 </head>
 <body>
 
-<div class="draft"><div class="wrap"><span>DRAFT · Not public · All copy is placeholder for the author to revise</span><span>v0.8 · Nov 2026</span></div></div>
+<div class="draft"><div class="wrap"><span>DRAFT · Not public · All copy is placeholder for the author to revise</span><span>v0.9 · Nov 2026</span></div></div>
 
 <header><div class="wrap">
   <a class="byline" href="index.html">Steven E. Schaefer</a>
   <nav aria-label="Main">
-    <div class="row"><span class="row-label">Binary Gods</span><a href="index.html">A Novel</a><a href="index.html#book">The Books</a><a href="index.html#world">The World</a><a href="index.html#praise">Praise</a><a href="index.html#news">News</a></div>
+    <div class="row"><span class="row-label">Binary Gods</span><a href="index.html#book">The Novel</a><a href="index.html#excerpt">Excerpt</a><a href="index.html#world">The World</a><a href="index.html#praise">Praise</a><a href="index.html#news">News</a></div>
     <div class="row"><a href="index.html#author">The Author</a><a href="african-journey.html" aria-current="page">Travels</a><a class="sub" href="index.html#list">Subscribe to the newsletter</a></div>
   </nav>
 </div></header>
@@ -248,6 +251,10 @@ dialog.lb::backdrop { background: rgba(8,7,6,.96); }
   <p class="tag">From safari on the savanna to Egypt: photographs from a journey across Africa.</p>
   <div class="chapters"><a href="#safari">On safari</a><a href="#egypt">Egypt</a></div>
 </div></section>
+
+<figure class="lead-photo">
+  <img src="images/gallery/acacia-sunset.jpg" width="2000" height="1333" alt="Two acacia trees silhouetted against an orange sunset sky." style="object-position: 50% 96%">
+</figure>
 
 <section class="block" id="story"><div class="wrap">
   <div><span class="label">The story</span><h2 style="margin-top:10px">A short story, in the works</h2></div>
@@ -290,7 +297,7 @@ dialog.lb::backdrop { background: rgba(8,7,6,.96); }
 <section class="cta-band"><div class="wrap">
   <span class="label">Newsletter</span>
   <div>
-    <p>Hear when the story is published, along with news of <em>Binary Gods</em>.</p>
+    <p>Occasional letters about <em>Binary Gods</em>, new stories, and photographs from the road, including word when this story is published.</p>
     <a class="btn" href="index.html#list">Get updates</a>
     <a class="btn ghost" href="index.html" style="margin-left:8px">Back to the home page</a>
   </div>

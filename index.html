@@ -179,16 +179,27 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 .more-link { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
 .more-link:hover { color: var(--accent); }
 @media (max-width: 820px) { .journey { grid-template-columns: 1fr; gap: 18px; } }
+
+/* Note from the author */
+.welcome .wrap { padding-block: 0 64px; }
+.welcome blockquote { margin: 0; max-width: 62ch; border-left: 2px solid var(--accent); padding: 4px 0 4px 24px; font-size: 20px; line-height: 1.6; }
+.welcome .sig { display: block; margin-top: 12px; font-family: var(--display); font-size: 24px; }
+/* Excerpt */
+.excerpt .epi { font-size: 16px; color: var(--muted); margin-bottom: 6px; }
+.excerpt .text { font-size: 19px; line-height: 1.75; display: grid; gap: 16px; }
+.excerpt .text p { margin: 0; }
+.excerpt .fade { position: relative; }
+.excerpt .src { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
 <body>
 
-<div class="draft"><div class="wrap"><span>DRAFT · Not public · All copy is placeholder for the author to revise</span><span>v0.8 · Nov 2026</span></div></div>
+<div class="draft"><div class="wrap"><span>DRAFT · Not public · All copy is placeholder for the author to revise</span><span>v0.9 · Nov 2026</span></div></div>
 
 <header><div class="wrap">
   <a class="byline" href="#top">Steven E. Schaefer</a>
   <nav aria-label="Main">
-    <div class="row"><span class="row-label">Binary Gods</span><a href="#top">A Novel</a><a href="#book">The Books</a><a href="#world">The World</a><a href="#praise">Praise</a><a href="#news">News</a></div>
+    <div class="row"><span class="row-label">Binary Gods</span><a href="#book">The Novel</a><a href="#excerpt">Excerpt</a><a href="#world">The World</a><a href="#praise">Praise</a><a href="#news">News</a></div>
     <div class="row"><a href="#author">The Author</a><a href="#travels">Travels</a><a class="sub" href="#list">Subscribe to the newsletter</a></div>
   </nav>
 </div></header>
@@ -213,11 +224,20 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
   </figure>
 </div></section>
 
+<section class="welcome"><div class="wrap">
+  <blockquote>
+    <p>Thanks for stopping by. I spent my career where medicine meets data, and the questions that work kept raising, about what a mind is and what can truly be known, eventually became a novel. This is where I'll share news of <em>Binary Gods</em>, the occasional story, and photographs from the road.</p>
+    <span class="sig">Steve</span>
+  </blockquote>
+  <p class="note" style="margin-top:14px">→ Draft wording. Rewrite this note in your own voice.</p>
+</div></section>
+
 <section class="block" id="book"><div class="wrap">
   <div><span class="label">The Book</span><h2 style="margin-top:10px">A love story at the edge of the substrate</h2></div>
   <div class="prose">
     <p class="lede">Soma Moto builds minds. Amara Soyinka splits open the physics underneath them. Across three decades of a world carved into five super-blocs, the two of them are pulled toward each other and toward a question neither can leave alone: what is a person, if a person can be written?</p>
     <p>Binary Gods is a near-future thriller with a love story at its center and a long philosophical reach. It moves from childhood to old age, from San Francisco labs to the coast of Ghana, and from human hands to synthetic ones. Along the way it asks who made whom, whether consciousness cares what it runs on, and what the word "god" means when every creator was once created.</p>
+    <p><em>Binary Gods</em> is a single novel told in four books, Origin, Ascent, Loop and Transcension, framed by a Prelude and a Postlude. It is the first in a series.</p>
     <p class="note">→ Replace with final jacket copy after the structural edit.</p>
     <ol class="books" aria-label="The four books of Binary Gods">
       <li><img src="images/book1-origin.jpg" width="398" height="569" loading="lazy" alt="Cover of Book One, Origin: a single bright star in deep blue space."><div><span class="num">Book One</span><span class="name">Origin</span><span class="kind">2035 →</span></div></li>
@@ -230,6 +250,31 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
       <span class="label">For readers of</span>
       <div class="comps" style="margin-top:8px"><span>Kazuo Ishiguro</span><span>Richard Powers</span><span>Ted Chiang</span><span>Cormac McCarthy</span></div>
     </div>
+  </div>
+</div></section>
+
+<section class="block excerpt" id="excerpt"><div class="wrap">
+  <div><span class="label">Excerpt</span><h2 style="margin-top:10px">From the Prelude</h2></div>
+  <div class="prose">
+    <p class="epi"><em>"And the earth was without form, and void; and darkness was upon the face of the deep."</em> —Genesis 1:2</p>
+    <div class="text">
+      <p>No matter.</p>
+      <p>Heat.</p>
+      <p>Density.</p>
+      <p>13.8 billion years ago, a Big Bang.</p>
+      <p>Inflation.</p>
+      <p>Cooling.</p>
+      <p>Then matter.</p>
+      <p>Earth coalesced from a swirling cloud of dust and gas roughly 4.5 billion years ago, forged in the gravitational crucible of the Sun's wake. Over millions of years, collisions and accretions formed a molten sphere, flecked with stardust—proto-Earth. The crust cooled. A thin rind formed over hellfire.</p>
+      <p>As the newborn Moon watched, volcanic outgassing vented water vapor, carbon dioxide, methane, and nitrogen. A secondary atmosphere took hold. Lightning laced the sky in frenzied barrages, like neurons firing without a mind. It was a violent and toxic world, yet one where the building blocks of life began to simmer.</p>
+      <p>The stage was set for biology to bloom from chemistry's relentless trial and error. In primordial pools, matter began to organize itself. Amino acids linked hands in the darkness. RNA developed means of replication. First crudely and then beautifully. Nature's programming alphabet emerged: four-letter nucleotide sequences that rendered the first language for life.</p>
+      <p>Time compressed in the telling. Around 4 billion years ago, life began with simple microbes.</p>
+      <p>Was the first code binary? Random or deliberate? Was it too dubious to call any of it purposeful?</p>
+      <p>It was damp, chaotic, and slow. Replication endured. It failed and attempted to copy again. Only to fail again. In the midst, something began learning from failure, attempting to transcend survival into purpose. From those first molecular stutters emerged something unprecedented: memory encoded into matter. Each generation carried forward not just structure, but consequence. It was not an event, but a compulsion.</p>
+      <p>From those early pulses of molecular imitation rose an unbroken chain, twitching forward across deep time. Not one spark, but trillions, some extinguished, others flowering.</p>
+    </div>
+    <p class="src">From <em>Binary Gods</em> · Prelude</p>
+    <div><a class="btn" href="#list">Get updates</a></div>
   </div>
 </div></section>
 
@@ -274,7 +319,7 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
       <div class="text">
         <p>Steven E. Schaefer has spent his career where medicine meets data: as a healthcare and medical-technology executive, a former CEO, and an adviser in health data science. Binary Gods grows out of the questions that work kept raising about minds, measurement and what can be known. It is his first novel.</p>
         <p>He lives in Maryland, and is at work on the next book in the series.</p>
-        <p><em>Binary Gods</em> is published by his independent imprint, <a href="https://steveneschaefer.github.io/estebanpress-site/">Esteban Press</a>. In the future, look for other highly curated works of art and editorials here, made for the person who likes to think, and to marvel at the mysteries that preceded us, surround us, and lie ahead.</p>
+        <p>His work is published through his independent imprint, <a href="https://steveneschaefer.github.io/estebanpress-site/">Esteban Press</a>.</p>
       </div>
     </div>
     <p class="note">→ Add a contact address once your author email is set up (e.g. steven@steveneschaefer.com).</p>
@@ -304,7 +349,7 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
       <li class="done"><span class="dot"></span><span class="when">2026</span><span class="what">Manuscript complete</span></li>
       <li class="now"><span class="dot"></span><span class="when">Nov 2026</span><span class="what">Structural edit under way</span></li>
       <li><span class="dot"></span><span class="when">2027</span><span class="what">Cover art</span></li>
-      <li><span class="dot"></span><span class="when">To be announced</span><span class="what">Publication by <a href="https://steveneschaefer.github.io/estebanpress-site/">Esteban Press</a></span></li>
+      <li><span class="dot"></span><span class="when">To be announced</span><span class="what">Publication by Esteban Press</span></li>
     </ol>
   </div>
 </div></section>
@@ -312,12 +357,13 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 <section class="block" id="list"><div class="wrap">
   <div><span class="label">Newsletter</span><h2 style="margin-top:10px">Hear it first</h2></div>
   <div class="prose">
-    <p class="lede">Occasional updates on the road to Binary Gods, sent only when there's something worth saying.</p>
+    <p class="lede">Occasional letters about <em>Binary Gods</em>, new stories, and photographs from the road, sent only when there's something worth saying.</p>
     <div class="signup-card">
       <ul class="perks">
         <li><span class="bit">01</span><span>The cover reveal, before it appears anywhere else</span></li>
         <li><span class="bit">10</span><span>The publication date, the moment it's set</span></li>
         <li><span class="bit">11</span><span>Notes from the writing desk on the world, the science and the next book</span></li>
+        <li><span class="bit">100</span><span>New stories and photographs, including the story of an African journey</span></li>
       </ul>
       <form class="signup" id="signup" method="post" target="signup-sink" novalidate>
         <div class="field">
