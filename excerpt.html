@@ -42,32 +42,29 @@ p { margin: 0; }
   padding: 18px max(22px, env(safe-area-inset-right, 0px)) 18px max(22px, env(safe-area-inset-left, 0px));
   color: var(--void-ink); transition: color .4s ease, background .4s ease; }
 .bar .byline { font-family: var(--display); font-size: 20px; text-decoration: none; }
-.bar .back { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; opacity: .8; }
-.bar .back:hover { opacity: 1; color: var(--ember); }
+.bar .back { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 1px solid currentColor; border-radius: 999px; padding: 9px 16px; white-space: nowrap; }
+.bar .back:hover { color: var(--ember); border-color: var(--ember); }
 .bar.light { color: var(--ink); background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 
 /* The void: opening sequence */
-.void { position: relative; min-height: 100vh; min-height: 100svh; background: var(--void); color: var(--void-ink); display: grid; place-items: center; overflow: hidden; }
+.void { position: relative; background: var(--void); color: var(--void-ink); display: grid; place-items: center; overflow: hidden; }
 #bits { position: absolute; inset: 0; width: 100%; height: 100%; }
+.void::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(rgba(6,8,12,0), var(--void)); pointer-events: none; z-index: 1; }
 .bloom { position: absolute; left: 50%; top: 50%; width: 140vmax; height: 140vmax; transform: translate(-50%, -50%) scale(.02); border-radius: 50%;
   background: radial-gradient(circle, rgba(214,165,70,.30) 0%, rgba(214,165,70,.10) 25%, rgba(214,165,70,0) 60%); opacity: 0; pointer-events: none; }
 .bloom.go { animation: bloom 3.2s cubic-bezier(.16,.8,.3,1) forwards; }
 @keyframes bloom { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.02); } 18% { opacity: 1; } 100% { opacity: .55; transform: translate(-50%,-50%) scale(1); } }
 
-.genesis { position: relative; z-index: 2; text-align: center; padding: 96px 24px 120px; max-width: 760px; }
-.epi { font-style: italic; color: var(--void-muted); font-size: 16px; max-width: 46ch; margin: 0 auto 56px; }
+.genesis { position: relative; z-index: 2; text-align: center; padding: 92px 24px 36px; max-width: 760px; }
+.epi { font-style: italic; color: var(--void-muted); font-size: 16px; max-width: 46ch; margin: 0 auto 36px; }
 .epi cite { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; display: block; margin-top: 10px; }
-.beats { display: grid; gap: 10px; }
-.beat { font-family: var(--display); font-size: clamp(30px, 5.2vw, 54px); line-height: 1.1; opacity: 0; transform: translateY(10px); filter: blur(6px); transition: opacity 1.1s ease, transform 1.1s ease, filter 1.1s ease; }
-.beat.big { font-size: clamp(22px, 3.2vw, 32px); font-family: var(--body); font-style: italic; color: var(--ember); margin-block: 14px; }
+.beats { display: grid; gap: 4px; }
+.beat { font-family: var(--display); font-size: clamp(28px, 4.2vw, 44px); line-height: 1.1; opacity: 0; transform: translateY(10px); filter: blur(6px); transition: opacity 1.1s ease, transform 1.1s ease, filter 1.1s ease; }
+.beat.big { font-size: clamp(20px, 2.8vw, 28px); font-family: var(--body); font-style: italic; color: var(--ember); margin-block: 8px; }
 .beat.on { opacity: 1; transform: none; filter: none; }
-.cue { position: absolute; z-index: 2; bottom: 28px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--void-muted); text-decoration: none; opacity: 0; transition: opacity 1s ease; display: grid; justify-items: center; gap: 8px; }
-.cue.on { opacity: 1; }
-.cue span { width: 1px; height: 34px; background: linear-gradient(var(--void-muted), transparent); animation: drip 2.4s ease-in-out infinite; }
-@keyframes drip { 0%,100% { transform: scaleY(.4); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } }
 
 /* Cooling: the background moves from the void to the page */
-.cooling { height: 70vh; background: linear-gradient(var(--void) 0%, #1A1712 35%, color-mix(in srgb, var(--paper) 60%, #2A2418) 70%, var(--paper) 100%); }
+.cooling { height: clamp(110px, 18vh, 180px); background: linear-gradient(var(--void) 0%, #1A1712 35%, color-mix(in srgb, var(--paper) 60%, #2A2418) 70%, var(--paper) 100%); }
 
 /* Matter: the reading column */
 .matter { padding: 0 24px 40px; }
@@ -93,7 +90,6 @@ footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size:
   html { scroll-behavior: auto; }
   .beat, .column p { opacity: 1; transform: none; filter: none; transition: none; }
   .bloom { opacity: .5; transform: translate(-50%,-50%) scale(1); animation: none; }
-  .cue { opacity: 1; } .cue span { animation: none; }
 }
 </style>
 </head>
@@ -102,7 +98,7 @@ footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size:
 
 <div class="bar" id="bar">
   <a class="byline" href="index.html">Steven E. Schaefer</a>
-  <a class="back" href="index.html#excerpt">← Back to the site</a>
+  <a class="back" href="index.html">← Main site</a>
 </div>
 
 <main>
@@ -121,7 +117,6 @@ footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size:
       <p class="beat">Then matter.</p>
     </div>
   </div>
-  <a class="cue" id="cue" href="#matter">Read on<span></span></a>
 </section>
 
 <div class="cooling" aria-hidden="true"></div>
@@ -144,7 +139,7 @@ footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size:
   <p>Be the first to hear when the book is out, with occasional notes from the writing along the way.</p>
   <div class="actions">
     <a class="btn" href="index.html#list">Get updates</a>
-    <a class="btn ghost" href="index.html#book">About the book</a>
+    <a class="btn ghost" href="index.html">Back to the main site</a>
   </div>
 </section>
 </main>
@@ -158,8 +153,7 @@ footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size:
   /* Opening: lines arrive one by one; light blooms at the Big Bang */
   var beats = [].slice.call(document.querySelectorAll('.beat'));
   var bloom = document.getElementById('bloom');
-  var cue = document.getElementById('cue');
-  if (reduce) { beats.forEach(function (b) { b.classList.add('on'); }); cue.classList.add('on'); }
+  if (reduce) { beats.forEach(function (b) { b.classList.add('on'); }); }
   else {
     var t = 900;
     beats.forEach(function (b, i) {
@@ -170,16 +164,17 @@ footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size:
       }, t);
       t += gap + (i === 2 ? 500 : 0);
     });
-    setTimeout(function () { cue.classList.add('on'); }, t + 400);
+    setTimeout(function () { }, t + 400);
   }
 
   /* Reading column: paragraphs settle in as they arrive */
   var paras = [].slice.call(document.querySelectorAll('.column p'));
+  paras.slice(0, 2).forEach(function (p) { p.classList.add('on'); });
   if (reduce || !('IntersectionObserver' in window)) paras.forEach(function (p) { p.classList.add('on'); });
   else {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -12% 0px' });
+    }, { rootMargin: '0px 0px -4% 0px' });
     paras.forEach(function (p) { io.observe(p); });
   }
 
