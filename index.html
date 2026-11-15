@@ -126,6 +126,10 @@ section.block h2 { font-size: 40px; }
 .comps { display: flex; flex-wrap: wrap; gap: 8px 22px; font-style: italic; color: var(--muted); }
 
 .praise { border-left: 2px solid var(--accent); padding-left: 20px; color: var(--muted); font-style: italic; }
+.quote { margin: 0 0 30px; }
+.quote blockquote { margin: 0; border-left: 2px solid var(--accent); padding-left: 20px; font-family: var(--display); font-size: 21px; line-height: 1.45; color: var(--ink); }
+.quote figcaption { margin-top: 10px; padding-left: 22px; color: var(--muted); font-size: 15px; }
+.quote figcaption strong { color: var(--ink); font-weight: 600; }
 
 /* Timeline: an actual sequence */
 .timeline { list-style: none; padding: 0; margin: 0; display: grid; }
@@ -306,8 +310,15 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 <section class="block" id="praise"><div class="wrap">
   <div><span class="label">Praise</span><h2 style="margin-top:10px">Early readers</h2></div>
   <div class="prose">
-    <p class="praise">Advance praise will appear here once quotes are approved for publication.</p>
-    <p class="note">→ Only use endorsements with the person's written permission.</p>
+    <figure class="quote">
+      <blockquote>&ldquo;I hadn&rsquo;t read a novel in ten years. I couldn&rsquo;t put this one down. <em>Binary Gods</em> reminded me how much I love to read.&rdquo;</blockquote>
+      <figcaption>&mdash; <strong>R. Jamie Spriggs</strong>, entrepreneur and innovator</figcaption>
+    </figure>
+    <figure class="quote">
+      <blockquote>&ldquo;I&rsquo;ve never been a futuristic reader, but I&rsquo;m intrigued by the language and the technical knowledge. Because of [this] book, I have a sense of how my grandchildren&rsquo;s lives may unfold.&rdquo;</blockquote>
+      <figcaption>&mdash; <strong>W. Drew Perkins</strong>, Emmy Award&ndash;winning documentary director and producer</figcaption>
+    </figure>
+    <p class="note">→ Written permission pending from both. Confirm Drew&rsquo;s Emmy wording with him.</p>
   </div>
 </div></section>
 
