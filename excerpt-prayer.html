@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Binary Prayer · Excerpt 4 of 4 · Binary Gods · Steven E. Schaefer</title>
+<meta name="description" content="An excerpt from Binary Gods by Steven E. Schaefer: a young monk meditates on the cliffs at Drak Yerpa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #EFEBE3; --ink: #23201B; --muted: #7A7266; --line: #D8D1C4; --ink-wash: #4A4339; --gold: #9A6A0C; --soft: #E3DCCD;
+  --display: "Gloock", Georgia, serif; --body: "Literata", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #15130F; --ink: #E8E2D6; --muted: #9C9486; --line: #2D2922; --ink-wash: #CFC6B6; --gold: #D6A546; --soft: #262219; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 19px; line-height: 1.85; -webkit-font-smoothing: antialiased; }
+a { color: inherit; } p { margin: 0; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.bar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px max(22px, env(safe-area-inset-right, 0px)) 14px max(22px, env(safe-area-inset-left, 0px)); background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.bar .byline { font-family: var(--display); font-size: 20px; text-decoration: none; }
+.bar .back { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 1px solid currentColor; border-radius: 999px; padding: 9px 16px; white-space: nowrap; }
+.bar .back:hover { color: var(--gold); }
+
+.intro { max-width: 32em; margin: 0 auto; padding: 72px 24px 48px; text-align: center; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+.intro h1 { font-family: var(--display); font-weight: 400; font-size: clamp(44px, 8vw, 76px); line-height: 1; margin: 12px 0 0; }
+.intro .rule { width: 1px; height: 64px; background: var(--line); margin: 36px auto 0; }
+
+.text { max-width: 31em; margin: 0 auto; padding: 0 24px; display: grid; gap: 1.6em; }
+.text > p { opacity: 0; transition: opacity 1.6s ease; }
+.text > p.on { opacity: 1; }
+.text .ink { text-align: center; font-style: italic; color: var(--ink-wash); font-size: 1.08em; padding: .8em 0; }
+
+/* The closing lines open out, one breath at a time */
+.breaths { max-width: 31em; margin: 2.4em auto 0; padding: 0 24px; display: grid; text-align: center; text-wrap: balance; }
+.breaths p { opacity: 0; transition: opacity 1.8s ease; }
+.breaths p.on { opacity: 1; }
+.breaths p:nth-child(1) { margin-bottom: 1.2em; }
+.breaths p:nth-child(2) { margin-bottom: 1.6em; }
+.breaths p:nth-child(3) { margin-bottom: 2.1em; }
+.breaths p:nth-child(4) { margin-bottom: 2.7em; }
+.final { position: relative; display: grid; place-items: center; margin: 1em auto 0; width: min(88vw, 440px); aspect-ratio: 1; }
+.final svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.enso { fill: none; stroke: var(--ink-wash); stroke-width: 3.5; stroke-linecap: round; opacity: .55; stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 3.2s cubic-bezier(.4,.1,.2,1); }
+.final.on .enso { stroke-dashoffset: 70; }
+.final p { position: relative; text-align: center; padding: 0 18%; font-family: var(--display); font-size: clamp(22px, 3.4vw, 30px); line-height: 1.2; opacity: 0; transition: opacity 2s ease 1.4s; }
+.final.on p { opacity: 1; }
+.bits { text-align: center; font-family: var(--mono); font-size: 12px; letter-spacing: .5em; color: var(--muted); margin-top: 28px; opacity: 0; transition: opacity 2s ease 2.6s; }
+.final.on + .bits { opacity: .8; }
+.after { height: 12vh; }
+
+/* Series navigation */
+.series { max-width: 760px; margin: 0 auto; padding: 24px 24px 24px; }
+.series-label { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.series ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.series a { display: grid; gap: 4px; height: 100%; padding: 14px 16px; border: 1px solid var(--line); text-decoration: none; border-radius: 6px; }
+.series a:hover { border-color: var(--gold); }
+.series a[aria-current="page"] { background: var(--soft); border-color: var(--gold); }
+.series .n { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.series .ttl { font-family: var(--display); font-size: 20px; line-height: 1.15; }
+.series .sub { font-size: 14px; color: var(--muted); font-style: italic; }
+.next { max-width: 760px; margin: 0 auto; padding: 8px 24px 56px; display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { font-family: var(--mono); font-size: 13px; letter-spacing: .03em; padding: 13px 20px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); padding: 28px 24px 40px; text-align: center; }
+
+@media (max-width: 640px) { .series ol { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: reduce) {
+  .text > p, .breaths p, .final p, .bits { opacity: 1; transition: none; }
+  .enso { stroke-dashoffset: 70; transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="byline" href="index.html">Steven E. Schaefer</a>
+  <a class="back" href="index.html">← Main site</a>
+</div>
+
+<main>
+<header class="intro">
+  <p class="kicker">Excerpt 4 of 4 · Book One: Origin</p>
+  <h1>Binary Prayer</h1>
+  <div class="rule" aria-hidden="true"></div>
+</header>
+
+<section class="text" aria-label="Excerpt">
+  <p>A balmy breeze gently swept his brow. It bore a thin sweetness like jasmine and moved through the trees with a silence of its own. The ambient sounds of nature's symphony drifted into him. First the full orchestra of the wild, then he focused on its smaller parts, distinct sounds, attributing each to its source. The song of a Chinese rubythroat. The whisper of the wind in the reeds. The faint lament of a shakuhachi carried from some forgotten distance. He was aware and intentional. Time passed without weight or measurement.</p>
+  <p>Perched in a lotus position on the cliffs at Drak Yerpa, where Mumun had sent him, he attended to the fleeting occupations of his mind. He sought to greet each thought without judgment. He imagined painting them as clouds, not to capture them, only to let them float away. To be a blank page, void of all but potential. When his mind cleared, he would be free to dive deeper into meditation, to probe the edges of enlightenment. He would sit for hours. His brush posed above the paper.</p>
+  <p class="ink"><em>I am waiting for the moment to begin. The paper is not empty. It is full of possibility. Let it speak. Let the ink settle, like silt in water.</em></p>
+  <p>Hours passed and the mind turned of its own accord. He let thinking return to him and pondered the old questions. Contemplation of the contrast between dharma-nature and Buddha-nature. Reality as it is and the self that peers upon it.</p>
+  <p>He was searching, not for answers, but for the edge where reality ends and self begins. For the past two years, <em>The Song of Enlightenment</em> had shaped his Zen practice, resonating through him until study and being felt inseparable. Seongcheol was only twenty-six years old, already on his path with the wisdom of an ancient soul.</p>
+  <p>Prayer for him was not supplication but a reaching toward the unknown. He sought communion with the hidden thing beneath all living things—that which he did not yet fully understand. He felt pulled toward something he could only describe as the common denominator of all that is, was, or will be. The smallest was the greatest. So he trained his mind to process his mental petitions into a binary form of primordial oppositions.</p>
+  <p>He strove to process the most complex of his meditations into a deconstructed form consisting of two basic elements: 0 or 1, on or off, positive or negative. A breath in and out.</p>
+</section>
+
+<section class="breaths" aria-label="Excerpt, closing lines">
+  <p>He imagined each breath as a bit of truth, each moment of awareness as a stored value.</p>
+  <p>His meditation became strings of consciousness, an algorithm for grace.</p>
+  <p>He reached through the veil of matter toward the foundation beneath it.</p>
+  <p>He connected to the elemental pattern comprising everything.</p>
+</section>
+<div class="final" id="final">
+  <svg viewBox="0 0 200 200" aria-hidden="true"><path class="enso" pathLength="1000" d="M 132 34 C 170 52, 182 100, 160 140 C 138 180, 82 186, 50 158 C 18 130, 20 78, 52 50 C 74 31, 100 27, 120 32"/></svg>
+  <p>Like a binary prayer.</p>
+</div>
+<p class="bits" aria-hidden="true">0 1</p>
+<div class="after" aria-hidden="true"></div>
+
+<nav class="series" aria-label="Excerpts from Binary Gods">
+  <p class="series-label">Four ways in</p>
+  <ol>
+    <li><a href="excerpt.html"><span class="n">01</span><span class="ttl">The Prelude</span><span class="sub">Before anything</span></a></li>
+    <li><a href="excerpt-mia.html"><span class="n">02</span><span class="ttl">Mia</span><span class="sub">A session transcript</span></a></li>
+    <li><a href="excerpt-prey.html"><span class="n">03</span><span class="ttl">Prey</span><span class="sub">Taken</span></a></li>
+    <li><a href="excerpt-prayer.html" aria-current="page"><span class="n">04</span><span class="ttl">Binary Prayer</span><span class="sub">On the cliffs</span></a></li>
+  </ol>
+</nav>
+<div class="next">
+  <a class="btn" href="index.html#list">Get updates</a>
+  <a class="btn ghost" href="excerpt.html">Back to the first excerpt</a>
+  <a class="btn ghost" href="index.html">Back to the main site</a>
+</div>
+</main>
+
+<footer>© 2026 Steven E. Schaefer · From <em>Binary Gods</em>, Book One: Origin</footer>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.text > p, .breaths p, .final'));
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('on'); }); return; }
+  els.slice(0, 2).forEach(function (e) { e.classList.add('on'); });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+</body>
+</html>

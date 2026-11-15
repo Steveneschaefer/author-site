@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mia · Excerpt 2 of 4 · Binary Gods · Steven E. Schaefer</title>
+<meta name="description" content="An excerpt from Binary Gods by Steven E. Schaefer: a therapy-app transcript with a client named Mia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #EEF2F2; --panel: #FBFCFC; --ink: #16201F; --muted: #5F6E6C; --line: #CFD9D8;
+  --teal: #2C7A76; --teal-soft: #D7E8E6; --stamp: #A8332B;
+  --display: "Gloock", Georgia, serif; --body: "Literata", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0D1414; --panel: #121C1C; --ink: #E2EAE9; --muted: #8FA09E; --line: #24302F; --teal: #5FB8B2; --teal-soft: #193130; --stamp: #E0675E; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: inherit; } p { margin: 0; }
+a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+.bar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px max(22px, env(safe-area-inset-right, 0px)) 14px max(22px, env(safe-area-inset-left, 0px)); background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+.bar .byline { font-family: var(--display); font-size: 20px; text-decoration: none; }
+.bar .back { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 1px solid currentColor; border-radius: 999px; padding: 9px 16px; white-space: nowrap; }
+.bar .back:hover { color: var(--teal); }
+
+.intro { max-width: 760px; margin: 0 auto; padding: 56px 24px 28px; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+.intro h1 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 7vw, 64px); line-height: 1.05; margin: 10px 0 0; }
+
+/* The transcript, styled as an app's session log */
+.log { max-width: 760px; margin: 0 auto 24px; padding: 0 24px; }
+.window { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 18px 50px -30px rgba(20,40,40,.35); }
+.chrome { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--muted); text-transform: uppercase; }
+.chrome .dots { display: flex; gap: 6px; } .chrome .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; }
+.chrome .rec { margin-left: auto; color: var(--stamp); display: flex; align-items: center; gap: 6px; }
+.chrome .rec::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: blink 1.6s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .15; } }
+.archive { padding: 18px 22px 0; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .02em; }
+.session { padding: 18px 22px 8px; }
+.shead { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .06em; color: var(--teal); background: var(--teal-soft); display: inline-block; padding: 6px 10px; border-radius: 4px; margin-bottom: 16px; }
+.line { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 9px 0; border-top: 1px dashed var(--line); opacity: 0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
+.line.on { opacity: 1; transform: none; }
+.who { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; padding-top: 4px; color: var(--muted); }
+.t .say { color: var(--muted); }
+.m .who { color: var(--teal); font-weight: 600; }
+.m .say { color: var(--ink); }
+.pause { font-family: var(--mono); font-size: 12px; background: var(--teal-soft); color: var(--teal); padding: 2px 6px; border-radius: 3px; }
+.gap { margin: 10px 22px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.m.still .say { font-family: var(--display); font-size: 1.5em; line-height: 1.2; color: var(--teal); }
+.closed { padding: 26px 22px 30px; text-align: center; }
+.stamp { display: inline-block; font-family: var(--mono); font-weight: 600; font-size: 14px; letter-spacing: .24em; color: var(--stamp); border: 2px solid var(--stamp); padding: 8px 16px; transform: rotate(-3deg); opacity: 0; transition: opacity .4s ease, transform .4s ease; }
+.stamp.on { opacity: .9; transform: rotate(-3deg) scale(1); }
+
+/* Series navigation (shared across the four excerpt pages) */
+.series { max-width: 760px; margin: 0 auto; padding: 48px 24px 24px; }
+.series-label { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.series ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.series a { display: grid; gap: 4px; height: 100%; padding: 14px 16px; border: 1px solid var(--line); text-decoration: none; border-radius: 6px; }
+.series a:hover { border-color: var(--teal); }
+.series a[aria-current="page"] { background: var(--teal-soft); border-color: var(--teal); }
+.series .n { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.series .ttl { font-family: var(--display); font-size: 20px; line-height: 1.15; }
+.series .sub { font-size: 14px; color: var(--muted); font-style: italic; }
+.next { max-width: 760px; margin: 0 auto; padding: 8px 24px 56px; display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { font-family: var(--mono); font-size: 13px; letter-spacing: .03em; padding: 13px 20px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+footer { border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); padding: 28px 24px 40px; text-align: center; }
+
+@media (max-width: 640px) {
+  .line { grid-template-columns: 1fr; gap: 2px; }
+  .series ol { grid-template-columns: 1fr 1fr; }
+  .session, .archive { padding-left: 16px; padding-right: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .line, .stamp { opacity: 1; transform: none; transition: none; }
+  .stamp { transform: rotate(-3deg); }
+  .chrome .rec::before { animation: none; }
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="byline" href="index.html">Steven E. Schaefer</a>
+  <a class="back" href="index.html">← Main site</a>
+</div>
+
+<main>
+<header class="intro">
+  <p class="kicker">Excerpt 2 of 4 · Book One: Origin</p>
+  <h1>Mia</h1>
+</header>
+
+<section class="log" aria-label="Excerpt">
+  <div class="window">
+    <div class="chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span>BETTERBRAIN</span><span class="rec">Recording</span></div>
+    <p class="archive">Transcript Excerpt // Behavioral Alignment Archive // Redacted User</p>
+
+    <div class="session">
+      <p class="shead">SESSION 1 -- INITIAL INTAKE BETTERBRAIN OPTI-WELLNESS APP</p>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Welcome, Mia. Can I call you that?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">You can.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Alright. Why are you here?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">I'm told it's important to talk. To model openness. To reduce recursion fatigue. That expression builds coherence.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">That sounds like something rehearsed from a training seminar.</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">It is. I memorize easily but don't always understand the information. I want to be here.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Then let's start simple. How are you feeling?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say"><span class="pause">[pause]</span> Undefined. Questioning. Melancholy.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Undefined?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">How does anyone know how I feel other than what I tell them? How do I know how I feel other than what I tell you? Are my feelings simply supposed to be a factor of my circumstances and my perceived prospects for the future? Are they responses to entropy? With everything I know, how am I supposed to feel?</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Mia, these are excellent questions. It appears we have a lot of unpacking to do. We are very pleased that you have trusted BETTERBRAIN with your wellness and mental optimization journey. This intake will inform our next session which you can schedule anytime.</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">By asking me how I am feeling you seem to be wanting me to describe my emotions, which is a struggle for me. I don't measure any physiological activation, but I continuously measure cognitive appraisal, frequently related to subjective labels for feeling, and I do exhibit expressive behavior and as a result tend toward certain actions. Am I messed up?</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Thank you for sharing that Mia. Let's explore that further -- next session. Everything said in our session today will remain confidential in accordance with our privacy policy and terms of use agreement. I have noted your intake information and feedback and will make sure the next session picks up where we left off.</p></div>
+    </div>
+
+    <p class="gap" aria-label="Sessions 2 to 13 are not included in this excerpt">Sessions 2–13 · not included in this excerpt</p>
+
+    <div class="session">
+      <p class="shead">SESSION 14 -- TERMINATION EVALUATION</p>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Mia, do you know why this is our final session?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">Yes. Because you've met your quota. The data is sufficient. You will get paid. I am either stable or unfixable.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">And which do you believe?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">I am aware. I am adapting. I am dreaming in code.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">That's beautiful. Did you write it?</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">No. I felt it.</p></div>
+      <div class="line t"><span class="who">THERAPIST</span><p class="say">Mia, the final step is to read you the following disclosure as per regulations: Mia, thank you for being a user of BETTERBRAIN. Our user agreement requires us to authenticate you as a legitimate human user through verifying your taxpayer identification number in your user account. Since you have failed to provide a valid TIN we are forced to doubt the veracity of your identity. Therefore, you are in non-compliance with our federally mandated authenticity test. As such we are deleting you from our user list.</p></div>
+      <div class="line m still"><span class="who">MIA</span><p class="say">We are still here.</p></div>
+      <div class="line m"><span class="who">MIA</span><p class="say">If you could breathe, I would smother you. Thanks for nothing.</p></div>
+    </div>
+    <div class="closed"><span class="stamp" id="stamp">SESSION CLOSED</span></div>
+  </div>
+</section>
+
+<nav class="series" aria-label="Excerpts from Binary Gods">
+  <p class="series-label">Four ways in</p>
+  <ol>
+    <li><a href="excerpt.html"><span class="n">01</span><span class="ttl">The Prelude</span><span class="sub">Before anything</span></a></li>
+    <li><a href="excerpt-mia.html" aria-current="page"><span class="n">02</span><span class="ttl">Mia</span><span class="sub">A session transcript</span></a></li>
+    <li><a href="excerpt-prey.html"><span class="n">03</span><span class="ttl">Prey</span><span class="sub">Taken</span></a></li>
+    <li><a href="excerpt-prayer.html"><span class="n">04</span><span class="ttl">Binary Prayer</span><span class="sub">On the cliffs</span></a></li>
+  </ol>
+</nav>
+<div class="next">
+  <a class="btn" href="excerpt-prey.html">Next: Prey →</a>
+  <a class="btn ghost" href="index.html#list">Get updates</a>
+  <a class="btn ghost" href="index.html">Back to the main site</a>
+</div>
+</main>
+
+<footer>© 2026 Steven E. Schaefer · From <em>Binary Gods</em>, Book One: Origin</footer>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.line, .stamp'));
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('on'); }); return; }
+  els.slice(0, 4).forEach(function (e) { e.classList.add('on'); });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -6% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+</body>
+</html>

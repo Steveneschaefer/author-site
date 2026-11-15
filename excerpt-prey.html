@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prey · Excerpt 3 of 4 · Binary Gods · Steven E. Schaefer</title>
+<meta name="description" content="An excerpt from Binary Gods by Steven E. Schaefer: Amara wakes in the back of a van.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0D0C0B; --ink: #E7E1D6; --muted: #8E877C; --line: #2A2622; --red: #C9533F; --red-soft: #3A1E19;
+  --display: "Gloock", Georgia, serif; --body: "Literata", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 19px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { color: inherit; } p { margin: 0; }
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* Carbon-mesh texture and a vignette that closes in */
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,.018) 0 1px, transparent 1px 7px), repeating-linear-gradient(-45deg, rgba(255,255,255,.018) 0 1px, transparent 1px 7px); }
+.vignette { position: fixed; inset: 0; pointer-events: none; z-index: 1; background: radial-gradient(ellipse at center, transparent var(--open, 62%), rgba(0,0,0,.88) 100%); }
+
+.bar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px max(22px, env(safe-area-inset-right, 0px)) 14px max(22px, env(safe-area-inset-left, 0px)); background: rgba(13,12,11,.88); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+.bar .byline { font-family: var(--display); font-size: 20px; text-decoration: none; }
+.bar .back { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 1px solid currentColor; border-radius: 999px; padding: 9px 16px; white-space: nowrap; }
+.bar .back:hover { color: var(--red); }
+
+main { position: relative; z-index: 2; }
+.intro { max-width: 34em; margin: 0 auto; padding: 64px 24px 30px; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+.intro h1 { font-family: var(--display); font-weight: 400; font-size: clamp(44px, 8vw, 72px); line-height: 1; margin: 10px 0 0; }
+
+.text { max-width: 33em; margin: 0 auto; padding: 0 24px; display: grid; gap: 1.25em; }
+.text > p, .verse { opacity: 0; transform: translateY(8px); transition: opacity .9s ease, transform .9s ease; }
+.text > p.on, .verse.on { opacity: 1; transform: none; }
+.text .thought { color: #CDBFA9; }
+.verse { margin: 1.2em 0; padding: 1.6em 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; display: grid; gap: .25em; }
+.verse p { font-family: var(--display); font-style: normal; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.3; color: var(--ink); }
+.verse em { font-style: normal; }
+.cut { font-weight: 600; }
+.after { height: 34vh; }
+
+/* Series navigation */
+.series { max-width: 760px; margin: 0 auto; padding: 24px 24px 24px; }
+.series-label { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.series ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.series a { display: grid; gap: 4px; height: 100%; padding: 14px 16px; border: 1px solid var(--line); text-decoration: none; border-radius: 6px; }
+.series a:hover { border-color: var(--red); }
+.series a[aria-current="page"] { background: var(--red-soft); border-color: var(--red); }
+.series .n { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.series .ttl { font-family: var(--display); font-size: 20px; line-height: 1.15; }
+.series .sub { font-size: 14px; color: var(--muted); font-style: italic; }
+.next { max-width: 760px; margin: 0 auto; padding: 8px 24px 56px; display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { font-family: var(--mono); font-size: 13px; letter-spacing: .03em; padding: 13px 20px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+footer { position: relative; z-index: 2; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); padding: 28px 24px 40px; text-align: center; }
+
+@media (max-width: 640px) { .series ol { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: reduce) { .text > p, .verse { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+<div class="vignette" id="vignette" aria-hidden="true"></div>
+<div class="bar">
+  <a class="byline" href="index.html">Steven E. Schaefer</a>
+  <a class="back" href="index.html">← Main site</a>
+</div>
+
+<main>
+<header class="intro">
+  <p class="kicker">Excerpt 3 of 4 · Book One: Origin</p>
+  <h1>Prey</h1>
+</header>
+
+<section class="text" aria-label="Excerpt">
+  <p>She woke in the back of a customized, rust-flecked hauler van, unsure how long she'd been out. The windows were covered with scavenged carbon mesh. The air reeked of humidified body odor mixed with cigarette smoke, curry and drugstore cologne.</p>
+  <p>Attempting to move sent pain through her stiff back.</p>
+  <p>Amara recognized she'd been kidnapped. She knew the usual outcome for a Charm City abduction: ransom attempt, panicked response, and then a corpse left somewhere.</p>
+  <p class="thought"><em>Why did she take the shortcut? She let herself feel rushed because she was impatient. Why did she take that risk? She allowed herself to be easy prey.</em></p>
+  <p>The odds favored this being her last day on Earth.</p>
+  <p>Amara was unprepared for suffering, but even less ready to face nonexistence. As she pondered her mortality, lines rose unbidden, like a hand from a dark pool:</p>
+  <div class="verse">
+    <p><em>Entropy will claim</em></p>
+    <p><em>Your body in parts</em></p>
+    <p><em>Nothing will remain</em></p>
+    <p><em>But love in our hearts</em></p>
+  </div>
+  <p>Buried in the earth, stillness would take her until decay returned her energy. Cremated, the heat and light of her would scatter through the galaxy, indistinguishable from all other wandering energy. Everything gathered throughout her brief lifetime, released.</p>
+  <p>To her parents, Amara's life and death would be nothing more than a memory.</p>
+  <p>Nausea rose hard; bile filled her throat. Panic surged, then dulled into something worse: apathy. Amara yearned to dispel the weakness, to recover her resolve, to gather her mind toward a practical purpose.</p>
+  <p class="cut">Those attempts were cut short.</p>
+</section>
+<div class="after" aria-hidden="true"></div>
+
+<nav class="series" aria-label="Excerpts from Binary Gods">
+  <p class="series-label">Four ways in</p>
+  <ol>
+    <li><a href="excerpt.html"><span class="n">01</span><span class="ttl">The Prelude</span><span class="sub">Before anything</span></a></li>
+    <li><a href="excerpt-mia.html"><span class="n">02</span><span class="ttl">Mia</span><span class="sub">A session transcript</span></a></li>
+    <li><a href="excerpt-prey.html" aria-current="page"><span class="n">03</span><span class="ttl">Prey</span><span class="sub">Taken</span></a></li>
+    <li><a href="excerpt-prayer.html"><span class="n">04</span><span class="ttl">Binary Prayer</span><span class="sub">On the cliffs</span></a></li>
+  </ol>
+</nav>
+<div class="next">
+  <a class="btn" href="excerpt-prayer.html">Next: Binary Prayer →</a>
+  <a class="btn ghost" href="index.html#list">Get updates</a>
+  <a class="btn ghost" href="index.html">Back to the main site</a>
+</div>
+</main>
+
+<footer>© 2026 Steven E. Schaefer · From <em>Binary Gods</em>, Book One: Origin</footer>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var paras = [].slice.call(document.querySelectorAll('.text > p, .verse'));
+  if (reduce || !('IntersectionObserver' in window)) paras.forEach(function (p) { p.classList.add('on'); });
+  else {
+    paras.slice(0, 3).forEach(function (p) { p.classList.add('on'); });
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    paras.forEach(function (p) { io.observe(p); });
+  }
+  /* The vignette tightens as she runs out of options, then releases at the end */
+  var v = document.getElementById('vignette'), text = document.querySelector('.text');
+  function onScroll() {
+    var r = text.getBoundingClientRect();
+    var prog = Math.min(Math.max((innerHeight - r.top) / (r.height + innerHeight * .4), 0), 1);
+    var open = 62 - 30 * Math.sin(prog * Math.PI * .9);
+    v.style.setProperty('--open', open.toFixed(1) + '%');
+  }
+  if (!reduce) { addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+})();
+</script>
+</body>
+</html>
