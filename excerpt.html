@@ -49,25 +49,25 @@ p { margin: 0; }
 /* The void: opening sequence */
 .void { position: relative; background: var(--void); color: var(--void-ink); display: grid; place-items: center; overflow: hidden; }
 #bits { position: absolute; inset: 0; width: 100%; height: 100%; }
-.void::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(rgba(6,8,12,0), var(--void)); pointer-events: none; z-index: 1; }
+.void::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 50px; background: linear-gradient(rgba(6,8,12,0), var(--void)); pointer-events: none; z-index: 1; }
 .bloom { position: absolute; left: 50%; top: 50%; width: 140vmax; height: 140vmax; transform: translate(-50%, -50%) scale(.02); border-radius: 50%;
   background: radial-gradient(circle, rgba(214,165,70,.30) 0%, rgba(214,165,70,.10) 25%, rgba(214,165,70,0) 60%); opacity: 0; pointer-events: none; }
 .bloom.go { animation: bloom 3.2s cubic-bezier(.16,.8,.3,1) forwards; }
 @keyframes bloom { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.02); } 18% { opacity: 1; } 100% { opacity: .55; transform: translate(-50%,-50%) scale(1); } }
 
-.genesis { position: relative; z-index: 2; text-align: center; padding: 92px 24px 36px; max-width: 760px; }
-.epi { font-style: italic; color: var(--void-muted); font-size: 16px; max-width: 46ch; margin: 0 auto 36px; }
-.epi cite { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; display: block; margin-top: 10px; }
-.beats { display: grid; gap: 4px; }
-.beat { font-family: var(--display); font-size: clamp(28px, 4.2vw, 44px); line-height: 1.1; opacity: 0; transform: translateY(10px); filter: blur(6px); transition: opacity 1.1s ease, transform 1.1s ease, filter 1.1s ease; }
+.genesis { position: relative; z-index: 2; text-align: center; padding: 84px 24px 20px; max-width: 760px; }
+.epi { font-style: italic; color: #C9C3B6; font-size: clamp(19px, 2.3vw, 24px); line-height: 1.5; max-width: 42ch; margin: 0 auto 28px; text-wrap: balance; }
+.epi cite { font-style: normal; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; display: block; margin-top: 10px; }
+.beats { display: grid; gap: 0; }
+.beat { font-family: var(--display); font-size: clamp(26px, 3.6vw, 38px); line-height: 1.1; opacity: 0; transform: translateY(10px); filter: blur(6px); transition: opacity 1.1s ease, transform 1.1s ease, filter 1.1s ease; }
 .beat.big { font-size: clamp(20px, 2.8vw, 28px); font-family: var(--body); font-style: italic; color: var(--ember); margin-block: 8px; }
 .beat.on { opacity: 1; transform: none; filter: none; }
 
 /* Cooling: the background moves from the void to the page */
-.cooling { height: clamp(110px, 18vh, 180px); background: linear-gradient(var(--void) 0%, #1A1712 35%, color-mix(in srgb, var(--paper) 60%, #2A2418) 70%, var(--paper) 100%); }
+.cooling { height: clamp(60px, 9vh, 90px); background: linear-gradient(var(--void) 0%, #1A1712 35%, color-mix(in srgb, var(--paper) 60%, #2A2418) 70%, var(--paper) 100%); }
 
 /* Matter: the reading column */
-.matter { padding: 0 24px 40px; }
+.matter { padding: 8px 24px 40px; }
 .column { max-width: 34em; margin: 0 auto; display: grid; gap: 1.3em; font-size: clamp(18px, 2.1vw, 20px); line-height: 1.8; }
 .column p { opacity: 0; transform: translateY(14px); transition: opacity .9s ease, transform .9s ease; }
 .column p.on { opacity: 1; transform: none; }
