@@ -188,11 +188,15 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 .welcome .wrap { padding-block: 0 64px; }
 .welcome blockquote { margin: 0; max-width: 62ch; border-left: 2px solid var(--accent); padding: 4px 0 4px 24px; font-size: 20px; line-height: 1.6; }
 .welcome .sig { display: block; margin-top: 12px; font-family: var(--display); font-size: 24px; }
-/* Excerpt */
-.excerpt .epi { font-size: 16px; color: var(--muted); margin-bottom: 6px; }
-.excerpt .text { font-size: 19px; line-height: 1.75; display: grid; gap: 16px; }
-.excerpt .text p { margin: 0; }
-.excerpt .fade { position: relative; }
+/* Excerpt teaser (full excerpt lives on excerpt.html) */
+.teaser { display: block; text-decoration: none; background: #06080C; color: #E9E4D8; padding: 34px 32px; position: relative; overflow: hidden; }
+.teaser::before { content: "01001110 01101111 00100000 01101101 01100001 01110100 01110100 01100101 01110010"; position: absolute; inset: auto 0 10px 0; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: .3em; color: rgba(200,190,170,.18); white-space: nowrap; overflow: hidden; }
+.teaser::after { content: ""; position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(214,165,70,.16), rgba(214,165,70,0) 60%); pointer-events: none; transition: opacity .5s ease; opacity: .6; }
+.teaser:hover::after { opacity: 1; }
+.cascade { position: relative; z-index: 1; display: block; font-family: var(--display); font-size: clamp(24px, 3.4vw, 34px); line-height: 1.35; }
+.cascade span { white-space: nowrap; }
+.cascade .bang { color: #D6A546; font-family: var(--body); font-style: italic; font-size: .8em; white-space: normal; }
+.ex-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .excerpt .src { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
@@ -203,7 +207,7 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 <header><div class="wrap">
   <a class="byline" href="#top">Steven E. Schaefer</a>
   <nav aria-label="Main">
-    <div class="row"><span class="row-label">Binary Gods</span><a href="#book">The Novel</a><a href="#excerpt">Excerpt</a><a href="#world">The World</a><a href="#praise">Praise</a><a href="#news">News</a></div>
+    <div class="row"><span class="row-label">Binary Gods</span><a href="#book">The Novel</a><a href="excerpt.html">Excerpt</a><a href="#world">The World</a><a href="#praise">Praise</a><a href="#news">News</a></div>
     <div class="row"><a href="#author">The Author</a><a href="#travels">Travels</a><a class="sub" href="#list">Subscribe to the newsletter</a></div>
   </nav>
 </div></header>
@@ -260,25 +264,11 @@ footer .wrap { padding-block: 36px 48px; border-top: 1px solid var(--line); disp
 <section class="block excerpt" id="excerpt"><div class="wrap">
   <div><span class="label">Excerpt</span><h2 style="margin-top:10px">From the Prelude</h2></div>
   <div class="prose">
-    <p class="epi"><em>"And the earth was without form, and void; and darkness was upon the face of the deep."</em> —Genesis 1:2</p>
-    <div class="text">
-      <p>No matter.</p>
-      <p>Heat.</p>
-      <p>Density.</p>
-      <p>13.8 billion years ago, a Big Bang.</p>
-      <p>Inflation.</p>
-      <p>Cooling.</p>
-      <p>Then matter.</p>
-      <p>Earth coalesced from a swirling cloud of dust and gas roughly 4.5 billion years ago, forged in the gravitational crucible of the Sun's wake. Over millions of years, collisions and accretions formed a molten sphere, flecked with stardust—proto-Earth. The crust cooled. A thin rind formed over hellfire.</p>
-      <p>As the newborn Moon watched, volcanic outgassing vented water vapor, carbon dioxide, methane, and nitrogen. A secondary atmosphere took hold. Lightning laced the sky in frenzied barrages, like neurons firing without a mind. It was a violent and toxic world, yet one where the building blocks of life began to simmer.</p>
-      <p>The stage was set for biology to bloom from chemistry's relentless trial and error. In primordial pools, matter began to organize itself. Amino acids linked hands in the darkness. RNA developed means of replication. First crudely and then beautifully. Nature's programming alphabet emerged: four-letter nucleotide sequences that rendered the first language for life.</p>
-      <p>Time compressed in the telling. Around 4 billion years ago, life began with simple microbes.</p>
-      <p>Was the first code binary? Random or deliberate? Was it too dubious to call any of it purposeful?</p>
-      <p>It was damp, chaotic, and slow. Replication endured. It failed and attempted to copy again. Only to fail again. In the midst, something began learning from failure, attempting to transcend survival into purpose. From those first molecular stutters emerged something unprecedented: memory encoded into matter. Each generation carried forward not just structure, but consequence. It was not an event, but a compulsion.</p>
-      <p>From those early pulses of molecular imitation rose an unbroken chain, twitching forward across deep time. Not one spark, but trillions, some extinguished, others flowering.</p>
-    </div>
-    <p class="src">From <em>Binary Gods</em> · Prelude</p>
-    <div><a class="btn" href="#list">Get updates</a></div>
+    <a class="teaser" href="excerpt.html" aria-label="Read the excerpt from the Prelude">
+      <span class="cascade" aria-hidden="true"><span>No matter.</span> <span>Heat.</span> <span>Density.</span> <span class="bang">13.8 billion years ago, a Big Bang.</span> <span>Inflation.</span> <span>Cooling.</span> <span>Then matter.</span></span>
+    </a>
+    <p class="lede">The novel opens before anyone exists: the birth of the universe and the first stirrings of life, asking whether the first code was binary.</p>
+    <div class="ex-cta"><a class="btn" href="excerpt.html">Read the excerpt</a><span class="src">About a 2-minute read</span></div>
   </div>
 </div></section>
 
